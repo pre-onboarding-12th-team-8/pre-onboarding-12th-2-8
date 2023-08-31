@@ -1,4 +1,7 @@
 import { useRef, useCallback, useEffect } from "react";
+const intersectOption = {
+  threshold: 0.5,
+};
 export const useIntersect = (onIntersectCallback) => {
   const ref = useRef(null);
   const onIntersect = useCallback(
@@ -16,9 +19,7 @@ export const useIntersect = (onIntersectCallback) => {
     if (!ref.current) {
       return;
     }
-    const observer = new IntersectionObserver(onIntersect, {
-      threshold: 0.5,
-    });
+    const observer = new IntersectionObserver(onIntersect, intersectOption);
     observer.observe(ref.current);
 
     return () => observer && observer.disconnect();
