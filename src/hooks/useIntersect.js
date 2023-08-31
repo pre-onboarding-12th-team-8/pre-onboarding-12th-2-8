@@ -17,7 +17,7 @@ export const useIntersect = (onIntersectCallback) => {
       return;
     }
     const observer = new IntersectionObserver(onIntersect, {
-      threshold: 0.9,
+      threshold: 0.5,
     });
     observer.observe(ref.current);
 
