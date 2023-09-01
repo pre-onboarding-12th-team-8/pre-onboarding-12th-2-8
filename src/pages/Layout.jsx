@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import styled from "styled-components";
 import { V } from "../styles/variables";
 import Header from "../components/Header";
+import { useLocation } from "react-router-dom";
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -15,10 +16,12 @@ const ContentWrapper = styled.main`
 `;
 
 const Layout = ({ children }) => {
-  const memorizedHeader = useMemo(() => <Header />, []);
+  const location = useLocation();
+  const headerText = "Facebook/react";
+
   return (
     <LayoutContainer>
-      <>{memorizedHeader}</>
+      {location.pathname === "/issues/*" && <Header>{headerText}</Header>}
       <ContentWrapper>{children}</ContentWrapper>
     </LayoutContainer>
   );
