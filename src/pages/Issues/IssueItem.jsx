@@ -6,7 +6,7 @@ export const IssueItem = ({ title, number, userName, updatedAt, comments }) => {
   const navigate = useNavigate();
 
   return (
-    <StyledIssueList onClick={() => navigate(`/${number}`)}>
+    <StyledIssueList onClick={() => navigate(`/issues/${number}`)}>
       <div>
         <div className="title">
           #{number} {title}
