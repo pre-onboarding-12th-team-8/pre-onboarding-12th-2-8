@@ -1,15 +1,33 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Loading = () => {
-  return <StyledLoading>로딩중...</StyledLoading>;
+  return (
+    <SpinnerStyle>
+      <SpinnerWrapper />
+      <h2>Loading...</h2>
+    </SpinnerStyle>
+  );
 };
 
-const StyledLoading = styled.section`
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+const SpinnerStyle = styled.section`
   width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-  text-align: center;
-  font-size: 25px;
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SpinnerWrapper = styled.div`
+  display: inline-block;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 3px solid #000;
+  animation: ${spin} 1s linear infinite;
 `;

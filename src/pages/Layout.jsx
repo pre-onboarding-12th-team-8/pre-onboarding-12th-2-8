@@ -1,8 +1,7 @@
-import { useMemo } from "react";
 import styled from "styled-components";
 import { V } from "../styles/variables";
 import Header from "../components/Header";
-import { useLocation } from "react-router-dom";
+import { useMatch } from "react-router-dom";
 
 const LayoutContainer = styled.div`
   display: flex;
@@ -16,12 +15,13 @@ const ContentWrapper = styled.main`
 `;
 
 const Layout = ({ children }) => {
-  const location = useLocation();
+  const isIssuesPage = useMatch("/issues");
+  const isDetailIssuePage = useMatch("/issues/:id");
   const headerText = "Facebook/react";
 
   return (
     <LayoutContainer>
-      {location.pathname === "/issues/*" && <Header>{headerText}</Header>}
+      {(isIssuesPage || isDetailIssuePage) && <Header>{headerText}</Header>}
       <ContentWrapper>{children}</ContentWrapper>
     </LayoutContainer>
   );
