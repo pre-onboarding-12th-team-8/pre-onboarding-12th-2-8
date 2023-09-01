@@ -5,15 +5,15 @@ import { DetailIssue } from "./pages/Issue/DetailIssue";
 
 function App() {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/" element={<div></div>}></Route>
           <Route path="/issues" element={<Issues />}></Route>
           <Route path="/issues/:id" element={<DetailIssue />}></Route>
         </Routes>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
