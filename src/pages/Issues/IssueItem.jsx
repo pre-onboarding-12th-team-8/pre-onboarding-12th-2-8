@@ -6,7 +6,7 @@ export const IssueItem = ({ title, number, userName, updatedAt, comments }) => {
   const navigate = useNavigate();
 
   return (
-    <StyledIssueList onClick={() => navigate(`/issues/${number}`)}>
+    <StyledIssueList onClick={() => navigate(`/${number}`)}>
       <div>
         <div className="title">
           #{number} {title}
@@ -21,6 +21,7 @@ export const IssueItem = ({ title, number, userName, updatedAt, comments }) => {
 };
 
 const StyledIssueList = styled.section`
+  width: 100%;
   cursor: pointer;
   display: flex;
   justify-content: space-between;

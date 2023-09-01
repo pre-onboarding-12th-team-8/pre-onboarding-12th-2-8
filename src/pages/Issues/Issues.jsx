@@ -1,5 +1,16 @@
 import React from "react";
+import { IssuesProvider } from "../../context/IssuesContext";
+import { IssueList } from "./IssueList";
+import { ErrorBoundary } from "../../components/ErrorBoundary";
 
 export const Issues = () => {
-  return <div>이슈 목록 전체 페이지</div>;
+  return (
+    <main>
+      <ErrorBoundary>
+        <IssuesProvider>
+          <IssueList />
+        </IssuesProvider>
+      </ErrorBoundary>
+    </main>
+  );
 };
